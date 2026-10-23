@@ -31,6 +31,11 @@ public class Calculator {
     JPanel displayPanel = new JPanel();
     JPanel buttonsPanel = new JPanel();
 
+    //A+B, A-B, A*B, A/B OPERATOR = +-/*, A,B = TAL, A = 0 ÄR DEFAULT STATE FÖR CLEARING
+    String A = "0";
+    String operator = null;
+    String B = null;
+
 
     Calculator() {
         //RUTAN NEDAN
@@ -85,10 +90,19 @@ public class Calculator {
                     if (Arrays.asList(rightSymbols).contains(buttonValue)) {
 
                     } else if (Arrays.asList(topSymbols).contains(buttonValue)) {
+                        if (buttonValue == "AC") {
+                            clearAll();
+                            displayLabel.setText("0");
+
+                        } else if (buttonValue == "+/-") {
+
+                        } else if (buttonValue == "%"){
+
+                        }
 
                     } else {
                         if (buttonValue == ".") {
-                            if (!displayLabel.getText().contains(buttonValue)){
+                            if (!displayLabel.getText().contains(buttonValue)) {
                                 displayLabel.setText(displayLabel.getText() + buttonValue);
                             }
 
@@ -108,6 +122,12 @@ public class Calculator {
 
         }
 
+    }
+
+    void clearAll(){
+        A = "0";
+        operator = null;
+        B = null;
     }
 
 }
